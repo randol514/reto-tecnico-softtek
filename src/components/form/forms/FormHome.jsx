@@ -27,7 +27,7 @@ const FormHome = () =>{
 
   const dispatch = useDispatch()
 
-  const {setItem, removeItem} = useStorage("formData")
+  const {setItem} = useStorage("formData")
 
   const onSubmit = async (form) => {
     dispatch(setFormData(form))
@@ -35,7 +35,15 @@ const FormHome = () =>{
     navigate("/planes")
   }
 
-  const initialValues = useSelector(state => state.form)
+  const formFromStore = useSelector(state => state.form)
+  const initialValues = {
+    typeDocument: '',
+    document: '',
+    telephone: '',
+    politiesPrivacy: false,
+    politiesCommunications: false,
+    ...formFromStore
+  }
 
   const {form, errors, loading, handleChange, handleBlur, handleSubmit} = useForm(initialValues,formHomeValidation, onSubmit)
 

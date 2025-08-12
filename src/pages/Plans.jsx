@@ -21,8 +21,9 @@ const Plans = () => {
 
   if (loading) return <Loading />
   if (error) return <div>Error: {error.message}</div>
+  if (!data) return null
 
-  const userAge = getAgeFromBirthday(data.birthDay)
+  const userAge = getAgeFromBirthday(data?.birthDay || "")
 
   return (
     <div className="plans-page">
