@@ -5,9 +5,11 @@ import Home from "../pages/Home";
 import Plans from "../pages/Plans";
 import Summary from "../pages/Summary";
 import NotFound from "../pages/404";
+import Terms from "../pages/terms";
 
 //Routing
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {Routes, Route} from 'react-router-dom'
+
 
 
 const RoutesConfig = () =>{
@@ -16,6 +18,7 @@ const RoutesConfig = () =>{
       <Route path="/" element={<Home/>}/>
       <Route path="/planes" element={<Plans/>}/>
       <Route path="/resumen" element={<Summary/>}/>
+      <Route path="/terminos" element={<Terms/>}/>
       <Route path="*" element={<NotFound/>}/>
     </Routes>
   )

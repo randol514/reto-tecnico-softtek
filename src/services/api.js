@@ -1,13 +1,10 @@
 import useFetch from "../hooks/useFecth";
-
-const BASE_URL = import.meta.env.VITE_API_BASE_URL
+import { API_ENDPOINTS } from "../constants/api";
 
 export const useUsers = ()=>{
-  const url = `${BASE_URL}/user.json`
-  return useFetch(url)
+  return useFetch(API_ENDPOINTS.USERS)
 }
 
 export const usePlans = () =>{
-  const url = `${BASE_URL}/plans.json`
-  return useFetch(url)
+  return useFetch(API_ENDPOINTS.PLANS)
 }

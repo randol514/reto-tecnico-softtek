@@ -1,6 +1,6 @@
 //Images
-import imageHome  from "../assets/images/home/home-img.png"
-import imageHomeMobile  from "../assets/images/home/home-img-mobile.png"
+import imageHome  from "../assets/images/home/home-img.webp"
+import imageHomeMobile  from "../assets/images/home/home-img-mobile.webp"
 
 //Components
 import FormHome from "../components/form/forms/FormHome"

@@ -4,6 +4,9 @@ import Button from "../../ui/Button/Button"
 import { useEffect } from "react"
 import useForm from "../../../hooks/useForm"
 
+//contants
+import { documentOptions } from "../../../constants/options"
+
 //Form
 import FormField from "../fields/FormField"
 import {formHomeValidation} from "../../../lib/validations/forms/formHomeValidation"
@@ -13,16 +16,22 @@ import styles from '../../../styles/modules/form.module.sass'
 import { useDispatch, useSelector } from "react-redux"
 import { setFormData } from "../../../features/form/formSlice"
 
+//Storage
+import { useStorage } from "../../../hooks/useStorage"
+
 //Router
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 
 const FormHome = () =>{
   const navigate = useNavigate()
 
   const dispatch = useDispatch()
 
+  const {setItem, removeItem} = useStorage("formData")
+
   const onSubmit = async (form) => {
     dispatch(setFormData(form))
+    setItem(form)
     navigate("/planes")
   }
 
@@ -52,12 +61,7 @@ const FormHome = () =>{
               onBlur={handleBlur}
               error={errors.typeDocument}
               className="left-inline"
-              options={[
-                { label: "Doc.", value: "" },
-                { label: "DNI", value: "DNI" },
-                { label: "RUC", value: "RUC" },
-                { label: "Pasaporte", value: "Pasaporte" },
-              ]}
+              options={documentOptions}
             />
             <FormField
               type="text"
@@ -110,9 +114,7 @@ const FormHome = () =>{
             />
           </div>
         </div>
-        <div className={`${styles["form-terms"]}`}>
-          Aplican Términos y Condiciones.
-        </div>
+        <Link className={`${styles["form-terms"]}`} to="/terminos" target="_blank" rel="noopener noreferrer">Aplican Términos y Condiciones.</Link>
         <div className={`${styles["form-button"]}`}>
           <Button 
             tag="button" 

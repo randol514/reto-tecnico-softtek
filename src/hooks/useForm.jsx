@@ -7,14 +7,14 @@ const useForm = (initialForm, validationForm, onSubmitCallback) =>{
   const [response, setResponse] = useState(null)
 
   //Change event
-const handleChange = (e) => {
-  const { name, value, type, checked } = e.target;
-  const inputValue = type === 'checkbox' ? checked : value;
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    const inputValue = type === 'checkbox' ? checked : value;
 
-  const updatedForm = { ...form, [name]: inputValue };
-  setForm(updatedForm);
-  setErrors(validationForm(updatedForm));
-};
+    const updatedForm = { ...form, [name]: inputValue };
+    setForm(updatedForm);
+    setErrors(validationForm(updatedForm));
+  };
 
   //Blur event
   const handleBlur = () =>{

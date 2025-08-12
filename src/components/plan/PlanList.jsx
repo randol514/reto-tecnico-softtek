@@ -53,7 +53,9 @@ const PlanList = ({ userAge, quotationSelected  }) =>{
         >
         {filteredPlans?.map((plan) => (
           <SwiperSlide key={plan.name}>
-            <PlanCard plan={plan} />
+            <PlanCard 
+            plan={plan}
+            />
           </SwiperSlide>
         ))}
         </Swiper>

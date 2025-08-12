@@ -1,5 +1,6 @@
 
-const QuotationCard = ({title, text, image, onSelect }) =>{
+const QuotationCard = ({quotation, onSelect }) =>{
+  const { title, text, image } = quotation
   return(
     <div className="quotation-card">
       <input 
